@@ -58,6 +58,12 @@ object OtherBuild : BuildType({
         root(DslContext.settingsRoot)
     }
 
+    steps {
+        script {
+            scriptContent = "./hello-world.sh"
+        }
+    }
+
     triggers {
         vcs {
         }
