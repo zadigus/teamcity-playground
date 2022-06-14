@@ -29,6 +29,7 @@ version = "2021.2"
 project {
 
     buildType(Build)
+    buildType(OtherBuild)
 }
 
 object Build : BuildType({
@@ -42,6 +43,19 @@ object Build : BuildType({
         script {
             scriptContent = "./hello-world.sh"
         }
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+})
+
+object OtherBuild : BuildType({
+    name = "Other Build"
+
+    vcs {
+        root(DslContext.settingsRoot)
     }
 
     triggers {
