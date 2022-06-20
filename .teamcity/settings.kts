@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 /*
@@ -30,6 +31,14 @@ project {
 
     buildType(Build)
     buildType(OtherBuild)
+
+    features {
+        buildReportTab {
+            id = "PROJECT_EXT_3"
+            title = "test"
+            startPage = "test.zip!index.html"
+        }
+    }
 }
 
 object Build : BuildType({
