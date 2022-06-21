@@ -44,6 +44,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    params {
+        password("env.MY_SECRET_VALUE", "credentialsJSON:faf2d7c8-3565-452a-8cfe-a7a55a4f0f4c", display = ParameterDisplay.HIDDEN)
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
