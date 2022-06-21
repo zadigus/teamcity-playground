@@ -2,7 +2,6 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
-import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -40,8 +39,6 @@ project {
             startPage = "test.zip!index.html"
         }
     }
-
-    subProject(TeamcityPlayground)
 }
 
 object Build : BuildType({
@@ -89,18 +86,4 @@ object OtherBuild : BuildType({
         vcs {
         }
     }
-})
-
-
-object TeamcityPlayground : Project({
-    name = "Teamcity Playground"
-
-    vcsRoot(TeamcityPlayground_HttpsGithubComZadigusTeamcityPlaygroundGitRefsHeadsMain)
-})
-
-object TeamcityPlayground_HttpsGithubComZadigusTeamcityPlaygroundGitRefsHeadsMain : GitVcsRoot({
-    name = "https://github.com/zadigus/teamcity-playground.git#refs/heads/main"
-    url = "https://github.com/zadigus/teamcity-playground.git"
-    branch = "refs/heads/main"
-    branchSpec = "refs/heads/*"
 })
